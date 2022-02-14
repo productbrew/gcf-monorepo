@@ -1,0 +1,17 @@
+{
+  "name": "@productbrew/funny-world",
+  "version": "0.1.0",
+  "main": "dist",
+  "scripts": {
+    "start": "functions-framework --target=funnyWorld --source=dist --signature-type=http",
+    "dev": "yarn build && concurrently -c bgBlue,bgWhite yarn:*-watch",
+    "build": "tsc && ts-node ../../scripts/cli funny-world",
+    "build-watch": "tsc -w",
+    "start-watch": "nodemon --watch ./dist --exec yarn start"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^2.1.0",
+    "escape-html": "^1.0.3",
+    "@productbrew/greetings": "*"
+  }
+}

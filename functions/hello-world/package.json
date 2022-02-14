@@ -1,0 +1,23 @@
+{
+  "name": "@productbrew/hello-world",
+  "version": "0.1.0",
+  "main": "dist",
+  "scripts": {
+    "start": "functions-framework --target=helloWorld --source=dist --signature-type=http",
+    "dev": "yarn build && concurrently -c bgBlue,bgWhite yarn:*-watch",
+    "build": "tsc",
+    "build-watch": "tsc -w",
+    "start-watch": "nodemon --watch ./dist --exec yarn start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^2.1.0",
+    "escape-html": "^1.0.3",
+    "module-alias": "^2.2.2",
+    "@productbrew/greetings": "*"
+  },
+  "devDependencies": {
+    "@types/escape-html": "^1.0.1",
+    "@types/express": "^4.17.13"
+  }
+}

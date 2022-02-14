@@ -1,0 +1,8 @@
+{
+  "name": "@productbrew/greetings",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
