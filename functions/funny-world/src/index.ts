@@ -1,6 +1,6 @@
 import { Request, Response } from "@google-cloud/functions-framework";
-import escapeHtml from "escape-html";
 import { getCowMessage } from "@productbrew/greetings";
+import escapeHtml from "escape-html";
 
 export function funnyWorld(req: Request, res: Response) {
   const reqName = String(req.query.name || "Anonymous");

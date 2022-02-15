@@ -2,6 +2,7 @@
   "name": "@productbrew/hello-world",
   "version": "0.1.0",
   "main": "dist",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "functions-framework --target=helloWorld --source=dist --signature-type=http",
     "dev": "yarn build && concurrently -c bgBlue,bgWhite yarn:*-watch",
@@ -12,9 +13,7 @@
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^2.1.0",
-    "escape-html": "^1.0.3",
-    "module-alias": "^2.2.2",
-    "@productbrew/greetings": "*"
+    "escape-html": "^1.0.3"
   },
   "devDependencies": {
     "@types/escape-html": "^1.0.1",

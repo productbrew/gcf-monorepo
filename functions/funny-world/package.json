@@ -2,6 +2,7 @@
   "name": "@productbrew/funny-world",
   "version": "0.1.0",
   "main": "dist",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "functions-framework --target=funnyWorld --source=dist --signature-type=http",
     "dev": "yarn build && concurrently -c bgBlue,bgWhite yarn:*-watch",
