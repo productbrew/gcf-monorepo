@@ -1,3 +1,27 @@
 # GCF monorepo
 
-// https://blog.frankdejonge.nl/setting-up-a-typescript-mono-repo-for-scoped-packages/
+Example repository to demonstrate how to work with Google Cloud function with monorepo.
+
+# 🏃‍♂️ Getting started
+
+1. Install dependencies: `yarn install`
+
+# Local development
+
+To run local function you need to use `dev` script for example:
+
+```sh
+yarn workspace @productbrew/funny-world dev
+```
+
+Then visit `http://localhost:8080/` to see the function response
+
+# Deployment
+
+Before you run `gcloud functions deploy`, you need to prepare function for deployment using:
+
+```sh
+yarn cli prepare-deploy funny-world
+```
+
+> Remember to remove the changes after deploy!

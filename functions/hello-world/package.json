@@ -5,8 +5,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "functions-framework --target=helloWorld --source=dist --signature-type=http",
-    "dev": "yarn build && concurrently -c bgBlue,bgWhite yarn:*-watch",
+    "dev": "yarn generate-entrypoint && concurrently -c bgBlue,bgWhite yarn:*-watch",
     "build": "tsc",
+    "generate-entrypoint": "ts-node ../../cli generate-entrypoint hello-world",
     "build-watch": "tsc -w",
     "start-watch": "nodemon --watch ./dist --exec yarn start",
     "test": "jest"

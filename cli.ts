@@ -6,7 +6,7 @@ const FUNCTIONS_DIRECTORY = path.join(__dirname, "functions");
 const ARGS = process.argv.slice(2);
 const COMMAND = ARGS[0];
 const FUNCTION_NAME = ARGS[1];
-const AVAILABLE_COMMANDS = ["build", "prepare-deploy"];
+const AVAILABLE_COMMANDS = ["generate-entrypoint", "prepare-deploy"];
 
 /**
  *
@@ -30,7 +30,7 @@ if (!FUNCTION_NAME) {
   process.exit(1);
 }
 
-if (COMMAND === "build") {
+if (COMMAND === "generate-entrypoint") {
   const START_TIME = performance.now();
   buildFunctionEntryPoint(FUNCTION_NAME);
   const END_TIME = performance.now();
@@ -109,7 +109,7 @@ module.exports = require("./functions/${functionName}/src/index");
 }
 
 function runFunctionBuild(functionName: string) {
-  console.log(`🏗  Building distribution version...`);
+  console.log(`🏗  Building "${functionName}" function...`);
   try {
     const functionDir = path.join(FUNCTIONS_DIRECTORY, functionName);
     const packageJsonPath = path.join(functionDir, "package.json");
