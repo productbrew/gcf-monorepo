@@ -8,13 +8,13 @@ Example repository to demonstrate how to work with Google Cloud function with mo
 
 # Local development
 
-To run local function you need to use `dev` script for example:
+To run local function, you need to use `dev` script, for example:
 
 ```sh
 yarn workspace @productbrew/funny-world dev
 ```
 
-Then visit `http://localhost:8080/` to see the function response
+Then visit `http://localhost:8080/` to see the function response.
 
 # Deployment
 
@@ -24,4 +24,4 @@ Before you run `gcloud functions deploy`, you need to prepare function for deplo
 yarn cli prepare-deploy funny-world
 ```
 
-> Remember to remove the changes after deploy!
+> Remember to remove the changes after deployment!
