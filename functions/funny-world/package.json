@@ -4,7 +4,7 @@
   "main": "dist",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "yaml2json .env.yaml >.env.json && env-cmd -r ./.env.json functions-framework --target=funnyWorld --source=dist --signature-type=http",
+    "start": "env-cmd functions-framework --target=funnyWorld --source=dist --signature-type=http",
     "dev": "yarn generate-entrypoint && concurrently -c bgBlue,bgWhite yarn:*-watch",
     "build": "tsc",
     "generate-entrypoint": "ts-node ../../cli generate-entrypoint funny-world",
@@ -14,8 +14,9 @@
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^2.1.0",
-    "escape-html": "^1.0.3",
     "@productbrew/greetings": "*",
-    "yaml2json": "^1.0.2"
+    "env-cmd": "^10.1.0",
+    "escape-html": "^1.0.3",
+    "module-alias": "^2.2.2"
   }
 }

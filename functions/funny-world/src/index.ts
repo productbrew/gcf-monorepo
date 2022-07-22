@@ -8,5 +8,5 @@ export function funnyWorld(req: Request, res: Response) {
 
   const message = getCowMessage(name);
 
-  res.send(`<pre>${message}</pre>`);
+  res.send(`<pre><b>${process.env.COMPANY}</b></br>${message}</pre>`);
 }

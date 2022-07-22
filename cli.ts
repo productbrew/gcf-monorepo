@@ -76,11 +76,7 @@ function buildFunctionEntryPoint() {
 
   const functionDistDir = path.join(FUNCTION_DIR, "dist");
 
-  const isFunctionBuilded = fs.existsSync(functionDistDir);
-  if (!isFunctionBuilded) {
-    console.log(`⚠️  Function "${FUNCTION_NAME}" is not builded.`);
-    runFunctionBuild();
-  }
+  runFunctionBuild();
 
   const functionPackageDir = path.join(functionDistDir, "packages");
 
@@ -102,12 +98,6 @@ function generateEntryFile() {
   const packagesConfig = getInternalPackageConfig();
 
   const aliases = packagesConfig.map((config) => config.alias);
-
-  if (!aliases.includes("module-alias")) {
-    console.log('\n🚨 Function package.json does not include "module-alias" package.\n');
-
-    process.exit(1);
-  }
 
   const entryFile = `\
 const path = require("path");
@@ -131,6 +121,12 @@ function runFunctionBuild() {
     const packageJsonFile = fs.readFileSync(packageJsonPath, "utf8");
     const packageJson = JSON.parse(packageJsonFile);
 
+    if (packageJson.dependencies["module-alias"] === undefined) {
+      console.log('\n🚨 Function package.json does not include "module-alias" package.\n');
+
+      process.exit(1);
+    }
+
     execSync(`yarn workspace ${packageJson.name} build`);
 
     console.log(`✅ Function "${FUNCTION_NAME}" builded!`);
@@ -151,12 +147,6 @@ function prepareFunctionForDeploy() {
 
   const functionPackageJsonPath = path.join(FUNCTION_DIR, "package.json");
   const packageJson = fs.readFileSync(functionPackageJsonPath, "utf8");
-
-  if (!packageJson.includes("module-alias")) {
-    console.log('\n🚨 Function package.json does not include "module-alias" package.\n');
-
-    process.exit(1);
-  }
 
   const packageJsonObj = JSON.parse(packageJson);
 
