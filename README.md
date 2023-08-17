@@ -18,7 +18,7 @@ Then visit `http://localhost:8080/` to see the function response.
 
 # Deployment
 
-Before you run `gcloud functions deploy`, you need to prepare function for deployment using:
+Run `gcloud functions deploy` This command will prepare the functions and deploy them.
 
 ```sh
 yarn cli prepare-deploy funny-world
